@@ -1,15 +1,17 @@
 package com.example.teamcitydemo.api.models;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class User extends BaseModel {
-    private String user;
-    private String password;
+public class Step extends BaseModel {
+    private String id;
+    private String name;
+    @Builder.Default
+    private String type = "simpleRunner";
 }
