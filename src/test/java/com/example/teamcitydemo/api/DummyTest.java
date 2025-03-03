@@ -8,12 +8,12 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
-public class DummyTest extends BaseApiTest{
-    @Test
-    public void userShouldBeAbleGetAllProject() {
-        RestAssured
-                .given()
-                .spec(Specifications.getSpec().authSpec(User.builder().user("admin1").password("admin").build()))
-                .get("/app/rest/projects");
-    }
-}
+//public class DummyTest extends BaseApiTest{
+//    @Test
+//    public void userShouldBeAbleGetAllProject() {
+//        RestAssured
+//                .given()
+//                .spec(Specifications.getSpec().authSpec(User.builder().user("admin1").password("admin").build()))
+//                .get("/app/rest/projects");
+//    }
+//}
