@@ -1,6 +1,7 @@
 package com.example.teamcitydemo.api.requests.checked;
 
 import com.example.teamcitydemo.api.enums.Endpoint;
+import com.example.teamcitydemo.api.generators.TestDataStorage;
 import com.example.teamcitydemo.api.models.BaseModel;
 import com.example.teamcitydemo.api.requests.CrudInterface;
 import com.example.teamcitydemo.api.requests.Request;
@@ -19,10 +20,13 @@ public final class CheckedBase<T extends BaseModel> extends Request implements C
 
     @Override
     public T create(BaseModel model) {
-        return (T) uncheckedBase
+        var createdModel = (T) uncheckedBase
                 .create(model)
                 .then().assertThat().statusCode(HttpStatus.SC_OK)
                 .extract().as(endpoint.getModelClass());
+
+        TestDataStorage.getStorage().addCreatedEntity(endpoint, createdModel);
+        return createdModel;
     }
 
     @Override
